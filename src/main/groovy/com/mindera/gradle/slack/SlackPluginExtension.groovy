@@ -7,6 +7,7 @@ class SlackPluginExtension {
     List<Object> dependsOnTasks
     String title
     boolean enabled = true
+    boolean ignoreFailures = false
 
     void dependsOnTasks(Object... paths) {
         this.dependsOnTasks = Arrays.asList(paths)

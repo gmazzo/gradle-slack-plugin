@@ -52,7 +52,7 @@ class SlackPlugin implements Plugin<Project> {
 
     void handleTaskFinished(Task task, TaskState state) {
         Throwable failure = state.getFailure()
-        boolean shouldSendMessage = failure != null || shouldMonitorTask(task);
+        boolean shouldSendMessage = (failure != null && !mExtension.ignoreFailures) || shouldMonitorTask(task);
 
         // only send a slack message if the task failed
         // or the task is registered to be monitored

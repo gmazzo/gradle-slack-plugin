@@ -47,7 +47,7 @@ slack {
 }
 ```
 
-By default, everytime a build fails a slack message will be sent to the channel you configured. If a build succeeds nothing happens.
+By default, everytime a build fails a slack message will be sent to the channel you configured (set `ignoreFailures = true` to override it). If a build succeeds nothing happens.
 
 There are more optional fields that enable you to configure the slack integration:
 
@@ -57,6 +57,7 @@ slack {
     dependsOnTasks 'testDebug', 'publishApkRelease'
     title 'my app name'
     enabled = isCDMachine()
+    ignoreFailures = false
 }
 ```
 
